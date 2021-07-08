@@ -1,6 +1,6 @@
 import glfw
 from OpenGL.GL import *
-import OpenGL.GL.shaders
+from OpenGL.GL.shaders import *
 import numpy
 import pyrr
 
@@ -63,7 +63,7 @@ def main():
         outColor = vec4(newColor, 1.0f);
     }
     """
-    shader = OpenGL.GL.shaders.compileProgram(OpenGL.GL.shaders.compileShader(vertex_shader, GL_VERTEX_SHADER),
+    shader =  compileProgram(OpenGL.GL.shaders.compileShader(vertex_shader, GL_VERTEX_SHADER),
                                               OpenGL.GL.shaders.compileShader(fragment_shader, GL_FRAGMENT_SHADER))
 
     VBO = glGenBuffers(1)
@@ -107,7 +107,7 @@ def main():
 
         glfw.swap_buffers(window)
         while (glfw.get_time() < lasttime + 1.0/TARGET_FPS):
-            just_Holding = None
+            pass
         lasttime += 1.0/TARGET_FPS
 
     glfw.terminate()
